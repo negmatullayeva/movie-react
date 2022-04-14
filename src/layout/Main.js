@@ -15,7 +15,7 @@ export default class Main extends Component {
   }
 
   searchMovies = (str, type = "all") => {
-    this.setState({loading: true})
+    this.setState({ loading: true });
     fetch(
       `http://www.omdbapi.com/?apikey=7e13cdd2&s=${str}${
         type !== "all" ? `&type=${type}` : ""
@@ -29,7 +29,7 @@ export default class Main extends Component {
       <div className="container content">
         <Search searchMovies={this.searchMovies} />
         {this.state.loading ? (
-          <Loader /> 
+          <Loader />
         ) : (
           <Movies movies={this.state.movies} />
         )}
